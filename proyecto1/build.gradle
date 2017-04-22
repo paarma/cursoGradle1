@@ -1,0 +1,32 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'jacoco'
+
+version = '1.0'
+
+//Especifica la version de java a utiilzar
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+   testCompile project.ext.junit
+   testCompile project.ext.mockito
+}
+
+jar {
+   manifest {
+       attributes 'Implementation-Title': 'proyecto1',
+                  'Implementation-Version': version
+   }
+}
+
+test {
+jacoco {
+append = false
+destinationFile = file("jacoco/jacocoTest.exec")
+}
+reports.junitXml.destination =  file("jacoco/test-results")
+}
+
+//Encadenamiento de tares (Ejecutar una tarea luego de ejecutar otra,)
+//jacocoTestReport.dependsOn(test)
