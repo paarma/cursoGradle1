@@ -9,6 +9,8 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
+   //copile Dependencias para dearrollo
+   //testComile Dependencias para pruebas	
    testCompile project.ext.junit
    testCompile project.ext.mockito
 }
